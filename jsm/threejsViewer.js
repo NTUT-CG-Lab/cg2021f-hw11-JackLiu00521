@@ -105,6 +105,7 @@ class threejsViewer {
                 let texture = new THREE.DataTexture3D(volume.alpha, dims[0], dims[1], dims[2]);
                 texture.format = THREE.LuminanceFormat;
                 texture.type = THREE.UnsignedByteType;
+                texture.minFilter = texture.magFilter = THREE.LinearFilter;
 
                 let cmtexture = new THREE.DataTexture(colormap, 256, 1);
 
@@ -145,6 +146,7 @@ class threejsViewer {
                     let texture = new THREE.DataTexture3D(volume.sizeData, dims[0], dims[1], dims[2]);
                     texture.format = THREE.LuminanceFormat;
                     texture.type = THREE.UnsignedByteType;
+                    texture.minFilter = texture.magFilter = THREE.LinearFilter;
 
                     uniforms["u_sizeEnable"].value = 1;
                     uniforms["u_sizeData"].value = texture;
